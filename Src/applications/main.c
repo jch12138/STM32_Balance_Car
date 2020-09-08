@@ -27,6 +27,7 @@ int main(void)
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
     fal_init();
     easyflash_init();
+    load_parameter();
 
 
     while (count++)
