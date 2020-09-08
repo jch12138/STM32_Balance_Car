@@ -38,16 +38,28 @@ extern "C" {
 #endif /* TIM3_CONFIG */
 #endif /* BSP_USING_TIM3 */
 
-#ifdef BSP_USING_TIM11
-#ifndef TIM11_CONFIG
-#define TIM11_CONFIG                                        \
+#ifdef BSP_USING_TIM4
+#ifndef TIM4_CONFIG
+#define TIM4_CONFIG                                         \
     {                                                       \
-       .tim_handle.Instance     = TIM11,                    \
-       .tim_irqn                = TIM1_TRG_COM_TIM11_IRQn,  \
-       .name                    = "timer11",                \
+       .tim_handle.Instance     = TIM4,                     \
+       .tim_irqn                = TIM4_IRQn,                \
+       .name                    = "timer4",                 \
     }
-#endif /* TIM11_CONFIG */
-#endif /* BSP_USING_TIM11 */
+#endif /* TIM4_CONFIG */
+#endif /* BSP_USING_TIM4 */
+
+#ifdef BSP_USING_TIM8
+#ifndef TIM8_CONFIG
+#define TIM8_CONFIG                                         \
+    {                                                       \
+       .tim_handle.Instance     = TIM8,                     \
+       .tim_irqn                = TIM8_UP_TIM13_IRQn,                \
+       .name                    = "timer8",                 \
+    }
+#endif /* TIM8_CONFIG */
+#endif /* BSP_USING_TIM8 */
+
 
 #ifdef BSP_USING_TIM13
 #ifndef TIM13_CONFIG
