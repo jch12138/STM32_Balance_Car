@@ -56,9 +56,9 @@ menu "Onboard Peripheral Drivers"
         select PHY_USING_LAN8720A
 
     config BSP_USING_MPU6050
-        bool "Enable MPU6050 (i2c1)"
+        bool "Enable MPU6050 (i2c2)"
         default n
-        select BSP_USING_I2C1
+        select BSP_USING_I2C2
         select PKG_USING_MPU6XXX
 
     config BSP_USING_SDCARD
@@ -178,6 +178,17 @@ menu "On-chip Peripheral Drivers"
         default n
         select RT_USING_HWTIMER
         if BSP_USING_TIM
+            config BSP_USING_TIM3
+                bool "Enable TIM3"
+                default n
+
+            config BSP_USING_TIM4
+                bool "Enable TIM4"
+                default n
+            config BSP_USING_TIM8
+                bool "Enable TIM8"
+                default n
+
             config BSP_USING_TIM11
                 bool "Enable TIM11"
                 default n
@@ -204,6 +215,21 @@ menu "On-chip Peripheral Drivers"
                     bool "Enable PWM2 channel4"
                     default n
             endif
+
+        menuconfig BSP_USING_PWM8
+            bool "Enable timer8 output pwm"
+            default n
+            if BSP_USING_PWM8
+                config BSP_USING_PWM8_CH1
+                    bool "Enable PWM8 channel1"
+                    default n
+
+                config BSP_USING_PWM8_CH2
+                    bool "Enable PWM8 channel2"
+                    default n
+
+            endif
+
         endif
 
     config BSP_USING_ON_CHIP_FLASH
@@ -273,6 +299,23 @@ menu "On-chip Peripheral Drivers"
                 default 25
         endif
 
+    menuconfig BSP_USING_I2C2
+        bool "Enable I2C2 BUS (software simulation)"
+        default y
+        select RT_USING_I2C
+        select RT_USING_I2C_BITOPS
+        select RT_USING_PIN
+        if BSP_USING_I2C2
+            config BSP_I2C2_SCL_PIN
+                int "i2c2 scl pin number"
+                range 0 143
+                default 26
+            config BSP_I2C2_SDA_PIN
+                int "I2C2 sda pin number"
+                range 0 143
+                default 27
+        endif
+
     menuconfig BSP_USING_ONCHIP_RTC
         bool "Enable RTC"
         select RT_USING_RTC
@@ -326,6 +369,12 @@ menu "On-chip Peripheral Drivers"
         bool "Enable Pulse Encoder"
         default n
         select RT_USING_PULSE_ENCODER
+        if BSP_USING_PULSE_ENCODER
+            config BSP_USING_PULSE_ENCODER3
+                bool "Enable Pulse Encoder3"
+                default n
+        endif
+        
         if BSP_USING_PULSE_ENCODER
             config BSP_USING_PULSE_ENCODER4
                 bool "Enable Pulse Encoder4"

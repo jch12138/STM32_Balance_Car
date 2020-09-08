@@ -224,6 +224,7 @@
 /* Onboard Peripheral Drivers */
 
 #define BSP_USING_USB_TO_USART
+#define BSP_USING_MPU6050
 
 /* On-chip Peripheral Drivers */
 
@@ -231,11 +232,18 @@
 #define BSP_USING_UART
 #define BSP_USING_UART1
 #define BSP_USING_TIM
+#define BSP_USING_TIM8
 #define BSP_USING_PWM
+#define BSP_USING_PWM8
+#define BSP_USING_PWM8_CH1
+#define BSP_USING_PWM8_CH2
 #define BSP_USING_ON_CHIP_FLASH
 #define BSP_USING_I2C1
 #define BSP_I2C1_SCL_PIN 24
 #define BSP_I2C1_SDA_PIN 25
+#define BSP_USING_I2C2
+#define BSP_I2C2_SCL_PIN 26
+#define BSP_I2C2_SDA_PIN 27
 
 /* Board extended module Drivers */
 
